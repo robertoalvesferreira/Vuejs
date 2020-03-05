@@ -1,7 +1,9 @@
-<div id="app">
+<div id="app" class="container">
+  <div class="col-sm-12 col-md-12 col-lg-12">
     <ejs-grid :dataSource="dados" :allowPaging="true" :allowSorting='true' :allowFiltering='true'  :pageSettings='pageSettings'>
       <e-columns>
       <e-column v-for="f in fields" v-bind:field='f.field' v-bind:headerText='f.headerText' v-bind:textAlign='f.textAlign' width=90 ></e-column>
       </e-columns>
     </ejs-grid>
+  </div>
 </div>

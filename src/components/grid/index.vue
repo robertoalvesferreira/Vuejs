@@ -12,7 +12,7 @@ Vue.use(GridPlugin);
 
 export default {
   name: "grid",
-  props: ['msg', 'dados', 'fields'],
+  props: ['dados', 'fields'],
   components: {
     GridPlugin
   },

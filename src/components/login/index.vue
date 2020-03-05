@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     checkForm: async function() {
-      this.token = await LoginService.store(this.login)
+      this.token = await LoginService.login(this.login)
         .then(response => localStorage.token = response.data.access_token)
         .catch(error => console.log(error));
 

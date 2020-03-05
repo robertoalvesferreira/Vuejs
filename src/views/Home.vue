@@ -1,22 +1,21 @@
 <template>
   <div class="home">
-    <!-- <h1>Home</h1> -->
-
-    <Grid msg="empty" :dados="dados"  :fields="fields" />
-
-      <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
-      <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+   <button class="btn btn-danger" style="margin:50px" v-on:click=logout>logut</button>
+  <Grid :dados="dados"  :fields="fields" />
   </div>
 </template>
+
+
 
 <script>
 // @ is an alias to /src
 import UserService from "../services/user";
 import Grid from "@/components/grid";
-
-
+import LoginService from "../services/login";
+import Router from "../router";
 export default {
   name: "Home",
+  Router,
   components: {
      Grid
   },
@@ -37,6 +36,16 @@ export default {
         .then(response => this.dados = response.data)
         .catch(error => console.log(error));
         console.log(this.dados)
+    },
+    logout: async function(){
+      await LoginService.logout()
+      .then(response => this.route(response))
+      .catch(error => console.log(error));
+       
+    },
+     route: function(response){
+      console.log(response)
+      Router.push({ name: "Login" });
     }
   },
   mounted() {
