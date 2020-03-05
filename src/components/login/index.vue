@@ -8,14 +8,13 @@ import Router from "../../router/";
 
 export default {
   name: "login",
-  props: ['msg'],
   Router,
 
   data() {
     return {
       login: {
-        email: "maria@hotmail.com",
-        password: "123456"
+        email: "",
+        password: ""
       },
       token: null,
     };
@@ -29,7 +28,7 @@ export default {
   methods: {
     checkForm: async function() {
       this.token = await LoginService.store(this.login)
-        .then(response => response.data.access_token)
+        .then(response => localStorage.token = response.data.access_token)
         .catch(error => console.log(error));
 
       if (this.token === undefined || this.token === null) {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Login msg="Teste msg pai"/>
+    <Login/>
   </div>
 </template>
 
