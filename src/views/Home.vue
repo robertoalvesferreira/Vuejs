@@ -32,7 +32,7 @@ export default {
   
    methods: {
     list: async function(){
-    await UserService.index()
+    await UserService.index(localStorage.token)
         .then(response => this.dados = response.data)
         .catch(error => console.log(error));
         console.log(this.dados)

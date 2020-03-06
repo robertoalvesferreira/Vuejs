@@ -1,19 +1,13 @@
-import { http } from './config';
-
-const USER_TOKEN = localStorage.getItem('token')
-const AuthStr = 'Bearer '.concat(USER_TOKEN)
-
+import { http } from "./config";
 
 export default {
-    
-    index:() =>{  
-        return http.get('users' , {headers: {'Authorization': AuthStr}})
-    },
+  index: token => {
+    return http.get("users", {
+      headers: { Authorization: "Bearer ".concat(token) }
+    });
+  },
 
-    store:(user) =>{
-        return http.post('users', user);
-    }
-
-
-
-}
+  store: user => {
+    return http.post("users", user);
+  }
+};
